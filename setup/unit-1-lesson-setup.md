@@ -9,7 +9,7 @@ Before you begin any lesson, it's essential to have your development environment
 1. Open your Terminal application and navigate to your `~/code/sei/lectures` directory:
 
 ```bash
-cd ~/code/sei/lectures
+cd ~/code/ga/lectures
 ```
 
 2. Create and enter a new folder for the current lesson:
