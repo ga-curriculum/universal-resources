@@ -1,6 +1,6 @@
 # Lesson Setup
 
-A Guide to setting up your development environment for lessons.
+A guide to setting up your development environment for lessons.
 
 Before you begin any lesson, it's essential to have your development environment ready. We'll provide you with two flexible methods for executing your javascript code. 
 
