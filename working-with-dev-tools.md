@@ -7,6 +7,7 @@ Note: While most browsers offer a version of DevTools, this guide is specificall
 Chrome DevTools are a set of built-in debugging and inspection tools for webpages within the Google Chrome browser. They provide functionalities for examining the structure, behavior, and performance of webpages, allowing developers and users to identify and solve issues, optimize resource usage, and experiment with different configurations.
 
 ### Key features of DevTools
+
 - **Element Inspection**: Examine the Document Object Model (DOM) structure of a webpage, including HTML elements, their attributes, and CSS styles. This allows for real-time modification of styles and visual debugging of layout issues.
 
 tktk hunter -- ss here
@@ -29,8 +30,8 @@ tktk hunter -- ss here
 
 - **Additional Tools**: Various other tools are available depending on the webpage and browser version, such as the Application panel for inspecting storage mechanisms, the Security panel for analyzing security certificates, and the Recorder panel for capturing user interactions for playback and analysis.
 
-
 ## Accessing DevTools
+
 There are two ways to access DevTools:
 
 - Right-click anywhere on a webpage: Choose "Inspect" from the menu that pops up. This opens the DevTools panel, revealing a treasure trove of information about the page.
@@ -39,9 +40,19 @@ tktk hunter -- ss here
 
 - Keyboard shortcuts: For power users, Chrome offers quick access with keyboard shortcuts like `Ctrl+Shift+I` (Windows/Linux) or `Command+Option+I` (Mac).
 
-## Code tab / elements panel
+## Elements panel
 
-The Code tab, often called the Elements panel, is your gateway to understanding the building blocks of a webpage. It houses the Document Object Model (DOM), which represents all of the HTML elements that make up the page, along with their attributes and styles.
+The elements panel, often referred to as the "Inspector," provides a visual representation of the HTML and CSS of a webpage. It allows user to:
+
+- **Inspect and modify HTML elements**: Users can select and inspect individual elements, view their attributes and styles, and make real-time modifications to the page's structure and appearance.
+- **Navigate the Document Object Model (DOM)**: The panel displays the hierarchical structure of the webpage's elements, showing how they are nested and organized.
+- **Analyze CSS styles**: Users can view and modify the styles applied to elements, including inherited and computed styles, and experiment with different visual presentations.
+
+The elements panel can be used to:
+
+- **Debug layout issues**: Identify and fix visual inconsistencies, layout problems, and overlapping elements by inspecting and modifying the HTML and CSS.
+- **Experiment with styles**: Test different visual designs, colors, and layouts by modifying CSS properties and observing the real-time changes on the webpage.
+- **Understand webpage structure**: Gain insight into how a webpage is constructed, including the relationships between different elements and their attributes.
 
 ### Navigating the DOM
 
@@ -175,4 +186,3 @@ tktk hunter ss of dropdown menu of devices
 - **Layout experimentation**: The ability to preview and adjust layouts in real-time facilitates design iteration and optimization without affecting the live website.
 
 - **Empathy for diverse users**: Understanding how websites appear and function on various devices fosters empathy for users with different screen sizes and interaction preferences, guiding informed design decisions.
-

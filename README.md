@@ -4,6 +4,7 @@ Contents
 
 Unit 1:
 
-- [Opening HTML files in the browser from VSCode](./opening-html-files-from-vscode.md)
-- [How to build a browser game guide](./how-to-build-a-browser-game-guide.md)
+- [VSCode Extentions](./vscode-extentions.md)
 - [Working with Chrome DevTools](./working-with-dev-tools.md)
+- [Build a Browser Game Concepts](./build-a-browser-game-concepts.md)
+- [Build a Browser Game Walkthrough](./build-a-browser-game-walkthrough.md)
