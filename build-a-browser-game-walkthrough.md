@@ -1,4 +1,4 @@
-# Build a Browser Game Walkthrough
+# ![Build a Browser Game Walkthrough](./assets/build-a-browser-game-walkthrough.png)
 
 This is a walkthrough of the steps you should take to start your browser game project. This walkthrough is meant to be used only when your project planning is over, and you are ready to start coding. If you still need to plan your project, please go back to the [Planning your Browser Game](./planning-your-browser-game.md) and follow the steps there.
 

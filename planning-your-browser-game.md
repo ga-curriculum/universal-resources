@@ -1,4 +1,5 @@
-# Planning your Browser Game
+# ![Planning your Browser Game](./assets/planning-your-browser-game.png)
+
 
 Project planning is an essential part of the development process. In this resource, you'll learn how to plan a browser game project using user stories and pseudocode.
 

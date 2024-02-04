@@ -1,4 +1,4 @@
-# Working with DevTools
+# ![Working with DevTools](./assets/working-with-dev-tools.png)
 
 Note: While most browsers offer a version of DevTools, this guide is specifically for Google Chrome's DevTools. 
 
@@ -10,23 +10,23 @@ Chrome DevTools are a set of built-in debugging and inspection tools for webpage
 
 - **Element Inspection**: Examine the Document Object Model (DOM) structure of a webpage, including HTML elements, their attributes, and CSS styles. This allows for real-time modification of styles and visual debugging of layout issues.
 
-tktk hunter -- ss here
+![Element inspection](./assets/element-inspection.png)
 
 - **Network Analysis**: Monitor network requests and responses made by the webpage, including details like timestamps, status codes, and transferred data. This helps identify performance bottlenecks and diagnose network-related issues.
 
-tktk hunter -- ss here
+![Network Analysis](./assets/network-analysis.png)
   
 - **Console Panel**: Execute JavaScript code in the browser context, allowing for testing logic, debugging scripts, and manipulating webpage elements dynamically.
 
-tktk hunter -- ss here
+![Console Panel](./assets/console-panel.png)
 
 - **Sources Panel**: Inspect and debug JavaScript source code files associated with the webpage, including setting breakpoints, stepping through code execution, and examining variable values.
 
-tktk hunter -- ss here
+![Sources Panel](./assets/sources-panel.png)
 
 - **Performance Panel**: Analyze the webpage's performance by recording and visualizing resource usage and execution timelines. This helps identify performance bottlenecks and optimize resource allocation.
 
-tktk hunter -- ss here
+![Performance Panel](./assets/performance-panel.png)
 
 - **Additional Tools**: Various other tools are available depending on the webpage and browser version, such as the Application panel for inspecting storage mechanisms, the Security panel for analyzing security certificates, and the Recorder panel for capturing user interactions for playback and analysis.
 
@@ -36,7 +36,7 @@ There are two ways to access DevTools:
 
 - Right-click anywhere on a webpage: Choose "Inspect" from the menu that pops up. This opens the DevTools panel, revealing a treasure trove of information about the page.
 
-tktk hunter -- ss here
+![Inspect](./assets/inspect.png)
 
 - Keyboard shortcuts: For power users, Chrome offers quick access with keyboard shortcuts like `Ctrl+Shift+I` (Windows/Linux) or `Command+Option+I` (Mac).
 
@@ -70,7 +70,7 @@ A search bar located at the bottom of the panel allows users to find specific el
 
 - **Attribute value**: Locate elements with specific values for attributes like `ID` or `class` (e.g., `id="banner"`).
 
-tktk hunter -- maybe ss of search bar? idk what do you think
+![Search](./assets/search.png)
 
 ### Pointer tool
 
@@ -80,7 +80,7 @@ The pointer tool, typically represented by a magnifying glass icon, enables user
 
 - **Right-click hovered elements**: Access context menus for inspecting attributes, editing styles, or performing other actions on the selected element.
 
-tktk hunter -- ss of pointer in action
+![Pointer](./assets/pointer.png)
 
 ### Benefits of the code tab
 
@@ -97,15 +97,16 @@ The Console panel within Chrome DevTools acts as a powerful interpreter and inte
 
 - **Execute JavaScript commands**: Send commands directly to the browser to evaluate expressions, run functions, and interact with webpage elements dynamically. 
 
-tktk hunter --  possibly ss of console input field with examples of basic commands
+![Console Input](./assets/console-input.png)
 
 - **Monitor output**: The console displays the results of executed commands, including log messages, errors, and returned values, providing insight into JavaScript execution and webpage behavior. 
   
-tktk hunter -- ss of console output with different message types
+![Monitor Output](./assets/monitor-output.png)
 
 - **Debug JavaScript**: Set breakpoints in code to pause execution at specific points, examine variable values, and step through code line by line for detailed analysis.
 
 ### Using JavaScript in the console
+
 There are a lot of great and helpful ways to use JavaScript in the console. We can:
 
 - **Enter commands directly in the input field**: The console interprets plain JavaScript code, allowing immediate evaluation and interaction with the webpage.
@@ -120,7 +121,7 @@ The Network tab within Chrome DevTools serves as a window into the invisible wor
 
 - **Performance analysis**: Identify bottlenecks and slow-loading resources that impact page performance. 
  
-tktk hunter -- ss of network waterfall with highlighted slow resources
+![Waterfall](./assets/waterfall.png)
 
 - **Debugging network issues**: Diagnose connection problems, server errors, and other network-related issues affecting webpage functionality.
 
@@ -135,7 +136,6 @@ tktk hunter -- ss of network waterfall with highlighted slow resources
 - **Response details**: Response time, size, content type (e.g., image/jpeg, text/html), and headers containing additional information about the response.
 
 - **Timing breakdown**: Visualization of different phases of the request-response cycle, such as DNS lookup, connection establishment, and content download, revealing performance bottlenecks.
-
 
 ### Useful features for network analysis
 
@@ -159,13 +159,13 @@ tktk hunter -- ss of network waterfall with highlighted slow resources
 
 The Devices panel within Chrome DevTools functions as a virtual testing environment for webpages, enabling users to simulate and analyze their layout, functionality, and user experience across diverse device configurations. This facilitates responsive web design practices, ensuring optimal presentation and interaction for users accessing websites on various screen sizes and orientations.
 
-tktk hunter ss of devices panel 
+![Devices](./assets/devices.png) 
 
 ### Key features
 
 - **Device emulation**: A pre-defined library of popular smartphones, tablets, and desktops allows users to select specific device profiles for simulation. Custom dimensions and resolutions can also be configured.
 
-tktk hunter ss of dropdown menu of devices
+![Devices Menu](./assets/devices-menu.png)
 
 - **Orientation adjustment**: Portrait, landscape, and other device orientations can be emulated to observe how the webpage layout adapts to different viewing angles.
 
