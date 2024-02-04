@@ -1,4 +1,4 @@
-# universal-resources
+# ![Universal Resources](./assets/universal-resources.png)
 
 Contents
 
