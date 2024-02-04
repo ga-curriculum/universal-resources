@@ -1,4 +1,4 @@
-# VSCode Extensions
+# ![VSCode Extensions](./assets/vscode-extensions.png)
 
 During the course, there are a couple of extensions that we recommend you install to make your life easier. This guide is broken down into sections:
 
