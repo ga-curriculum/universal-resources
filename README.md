@@ -1,6 +1,6 @@
 # ![Universal Resources](./assets/universal-resources.png)
 
-Resources:
+## Resources
 
 - [VSCode Extensions](./vscode-extentions.md)
 
@@ -9,3 +9,7 @@ Resources:
 - [Planning your Browser Game](./planning-your-browser-game.md)
 
 - [Build a Browser Game Walkthrough](./build-a-browser-game-walkthrough.md)
+
+## Deployment
+
+- [GitHub Pages](./deployment/github-pages/README.md)
