@@ -12,4 +12,4 @@
 
 ## Deployment
 
-- [GitHub Pages](./deployment/github-pages/README.md)
+- [GitHub Pages Deployment for Static Sites](./deployment/github-pages-deployment-for-static-sites/README.md)
