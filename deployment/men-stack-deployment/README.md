@@ -131,7 +131,7 @@ You can now return to your Heroku dashboard if you wish. You can use this dashbo
 Today we'll be deploying a MEN stack application to Heroku.
 
 You should already have set up a Heroku account. If not, refer to this [tktk walkthrough] to set one up.
-Additionally, you should have set up a MongoDB Atlas account and configured a cluster. If not, refer to this [tktk walkthrough] to set one up.
+
 
 ## Step 1. Configure your MEN Stack Application
 
@@ -151,44 +151,6 @@ Take a look at your `package.json` and ensure there's an NPM script called start
 
 `npm run start` is the default script and entry point to your app. Heroku will execute npm run start when it deploys your application. You can also run this on your machine to test out the production version of your app.
 
-### Create an Environmental Variable
-
-Currently our application has `livereload` packages and middleware that allows us to refresh the page on EJS and CSS file changes. This is very useful for development, but it is unnecessary code to have in a production environment. We're going to create an environment variable that will indicate what environment our application will be running in, so that we can disable the livereload middleware.
-
-In your .env file add this line:
-
-```
-ON_HEROKU=false
-```
-
-Our Heroku environment will have this same variable, but set to true. By doing this, we can create a conditional that will enable/disable the middleware.
-
-Refactor the middleware section of the `server.js` file so that it looks like this:
-
-```js
-// Detect if running in a dev environment
-if (process.env.ON_HEROKU === 'false') {
-    // Configure the app to refresh the browser when nodemon restarts
-    const liveReloadServer = livereload.createServer();
-    liveReloadServer.server.once("connection", () => {
-        // wait for nodemon to fully restart before refreshing the page
-        setTimeout(() => {
-        liveReloadServer.refresh("/");
-        }, 100);
-    });
-    app.use(connectLiveReload());
-}
-
-// Body parser: used for POST/PUT/PATCH routes: 
-// this will take incoming strings from the body that are URL encoded and parse them 
-// into an object that can be accessed in the request parameter as a property called body (req.body).
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static('public'))
-// Allows us to interpret POST requests from the browser as another request type: DELETE, PUT, etc.
-app.use(methodOverride('_method'));
-```
-
-Here, we wrapped our custom middleware in a conditional that will only execute the containing code in a dev environment.
 
 ### Step 2: Set up a Heroku MEN Application
 
