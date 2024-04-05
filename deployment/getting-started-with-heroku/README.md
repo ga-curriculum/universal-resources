@@ -1,3 +1,6 @@
+# ![Getting Started with Heroku](./assets/hero.png)
+[tktk Hunter, this needs a hero!]
+
 ## What is Heroku? 
 
 In order to make our applications available to the public, we have to store them on an internet server. There are many cloud infrastructure providers that allow developers to use the provider's servers to deploy web apps. 
@@ -22,15 +25,15 @@ Navigate to https://education.github.com/pack/offers.
 
 You should now see a page that looks like this:
 
-<img src="./assets/men-stack-1.png" width="100%">
+
 
 Scroll down the page until you see the Heroku card, and then click on the card.
 
-<img src="./assets/men-stack-2.png">
+
 
 You'll be taken to a page like the one shown below. Click on the Get the student offer button.
 
-<img src="./assets/men-stack-3.png">
+
 
 ### Step 2: Sign Up for a Heroku Account
 
