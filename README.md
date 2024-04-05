@@ -13,4 +13,5 @@
 ## Deployment
 
 - [GitHub Pages Deployment for Static Sites](./deployment/github-pages-deployment-for-static-sites/README.md)
+- [Getting started with Heroku](./deployment/getting-started-with-heroku/README.md)
 - [MEN Stack Deployment](./deployment/men-stack-deployment/README.md)
