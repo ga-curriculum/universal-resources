@@ -19,7 +19,7 @@ GitHub has partnered with Heroku to give GitHub Students free credits to use Her
 
 Ensure that you are logged into your personal GitHub account (not GitHub Enterprise) that you provided to General Assembly.
 
-<!-- Ensure that you have registered for GitHub Campus with your personal GitHub account. If you have not yet registered for GitHub Campus, follow [tktk this walkthrough]. -->
+Ensure that you have registered for GitHub Campus with your personal GitHub account. If you have not yet registered for GitHub Campus, follow [this walkthrough](./getting-started-with-github-campus/README.md) before you move on.
 
 Navigate to https://education.github.com/pack/offers.
 
