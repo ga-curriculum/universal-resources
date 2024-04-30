@@ -1,5 +1,4 @@
-# ![MEN Stack Deployment](./assets/hero-tktk.png)
-[tktk Hunter, this needs a hero!]
+# ![MEN Stack Deployment](./assets/hero.png)
 
 ## Intro
 

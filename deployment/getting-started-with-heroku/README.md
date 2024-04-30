@@ -1,6 +1,6 @@
 # ![Getting Started with Heroku](./assets/hero.png)
 
-## What is Heroku? 
+## What is Heroku?
 
 In order to make our applications available to the public, we have to store them on an internet server. There are many cloud infrastructure providers that allow developers to use the provider's servers to deploy web apps. 
 
