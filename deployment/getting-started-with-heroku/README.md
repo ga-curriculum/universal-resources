@@ -1,5 +1,4 @@
 # ![Getting Started with Heroku](./assets/hero.png)
-[tktk Hunter, this needs a hero!]
 
 ## What is Heroku? 
 
