@@ -184,7 +184,7 @@ On the build & deploy page, ***scroll down*** to the **Build settings** section 
 
 ![Screenshot of the 'Site configuration' page in Netlify. The main content area shows the 'Build settings'. At the bottom, there is a 'Configure' button outlined in red.](./assets/netlify-site-build-settings.png)
 
-After clicking this button, you will be able to change the build settings. Change the value in the **Build command** field outlined in red below to `CI='' npm run build` (`''` is two single quote characters, not one double quote character) as shown. 
+After clicking this button, you will be able to change the build settings. Change the value in the **Build command** field outlined in red below to `CI='' npm run build` (`''` is two single quote characters, not one double quote character) as shown.
 
 After you've made this change, select the **Save** button outlined in red below.
 
