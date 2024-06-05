@@ -138,4 +138,4 @@ Additionally, you can trigger a manual deploy to instantly deploy your applicati
 
 ## Updating your deployed site
 
-Your app will update automatically whenever you push the the `main` branch of your application.
+Your app will update automatically whenever you push the the `main` branch on GitHub.
