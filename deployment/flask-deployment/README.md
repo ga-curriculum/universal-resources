@@ -38,7 +38,9 @@ def get_db_connection():
 
 This checks for the `ON_HEROKU` environment variable we created on Heroku earlier. If it is present we'll use a local database on Heroku, otherwise, we'll use the local database on our device.
 
-> 🚨 Note that using a local Postgres database on Heroku incurs a monthly fee. If you've configured your Heroku account correctly by using EcoDynos for all of your project you should be able to deploy a single app that uses a Postgres database to Heroku along with any number of other applications (without SQL databases) and not be charged.
+> 🚨 As this dialog box points out, using a local Postgres database on Heroku incurs a monthly fee. If you've configured your Heroku account correctly by using EcoDynos for all of your projects you should be able to add a single Heroku Postgres add-on and still be under the maximum credits provided by the GitHub Campus program.
+>
+> It is important to ensure that all of your applications are deployed using EcoDynos and that you do not have more than a single Heroku Postgres add-on in your account, or you will be billed by Heroku.
 
 ### Build a Procfile
 
@@ -54,7 +56,7 @@ Open the file. Add this text inside of it:
 web: gunicorn app:app
 ```
 
-gunicorn is now responsible for running our app when we're deployed to heroku.
+Gunicorn is now responsible for running our app when we're deployed to heroku. This is a production WSGI server that Flask wants to run in outside of our development environments
 
 ### Allow gunicorn to start the server
 
@@ -108,6 +110,8 @@ ON_HEROKU=true
 JWT_SECRET=<your-personal-secret-string>
 ```
 
+> 🚨 ***Do not add the `ON_HEROKU` environment variable to your local `.env` file. You should not have an `ON_HEROKU` environment variable in your `.env` file at all. Do not add `ON_HEROKU=false` to your local `.env` file.***
+
 Your specific application may require more environment variables than this. You ***do not*** need to include any environment variables that begin with `POSTGRES_` in your config vars on Heroku.
 
 You'll also need to tell Heroku what type of application your website will be. We can do that using buildpacks. Underneath your config vars, select the option to add a buildpack.
@@ -139,3 +143,61 @@ Additionally, you can trigger a manual deploy to instantly deploy your applicati
 ## Updating your deployed site
 
 Your app will update automatically whenever you push the the `main` branch of your application.
+
+## Setting up a database (one time)
+
+Your app should work, but you won't be able to do anything that would require a database so far because our app isn't connected to a database yet.
+
+Navigate to the **Resources** tab for your app, then select the **add-ons search box** and search for **`Heroku Postgres`**.
+
+<img src="./assets/add-heroku-postgres-resource.png" />
+
+A dialog box will appear asking you to confirm adding on the database to the project.
+
+![](./assets/submit-order.png)
+
+> 🚨 As this dialog box points out, using a local Postgres database on Heroku incurs a monthly fee. If you've configured your Heroku account correctly by using EcoDynos for all of your projects you should be able to add a single Heroku Postgres add-on and still be under the maximum credits provided by the GitHub Campus program.
+>
+> It is important to ensure that all of your applications are deployed using EcoDynos and that you do not have more than a single Heroku Postgres add-on in your account, or you will be billed by Heroku.
+
+Ensure your plan indicates that you will be charged a maximum of $5.00/month, then select the **Submit Order Form** button after you have confirmed your applications are all using the EcoDynos plan, that this is your first Heroku Postgres add-on, and that you have no other add-ons attached to your account.
+
+Heroku Postgres will enter a provisioning state which may take a few moments to complete.
+
+## Adding tables to your Heroku Postgres database (repeat when you want to add tables)
+
+We need our database to have tables before we can add any data to it, or we might want to alter, add, or delete tables later on. The steps to follow are the same, no matter which action we're taking.
+
+After your Heroku Postgres add-on has been provisioned to your account, go to the **Overview** tab for your app as shown below. Select the **Heroku Postgres** add-on.
+
+![](./assets/app-overview-add-ons.png)
+
+You'll be taken to the Heroku Postgres app. Select the **Settings** tab, then select the **View credentials...** button to view your database credentials.
+
+Copy the URI as outlined in the screenshot below:
+
+![](./assets/postgres-db-uri.png)
+
+> 🚨 You must copy the ***entire*** URI. Do not leave off any pieces.
+
+With the URI in hand, go to your terminal application and run the `psql` command followed by the URI you just copied:
+
+```bash
+psql <heroku-postgres-db-uri>
+```
+
+> 🚨 Do not copy the above command. It will not work. Replace `<heroku-postgres-db-uri>` above (including the `<` and `>`) with the database URI you just copied.
+>
+> Unfortunately, this URI can change, so you will likely need to return to the Heroku app dashboard again later to get a new database URI if a substantial amount of time has passed between your interactions with this database. Keep the steps here handy to help you with this.
+
+Modify the above command, then run it. You will now be connected to the Heroku Postgres database in the `psql` shell. Here, you can take any action you would take on a local database. For example, you might set up a `user` table with the following command:
+
+```sql
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+```
+
+Run the necessary commands in the `psql` shell to add, remove, and modify the database tables for your deployed application. This does not sync with your local postgres database, you'll need to return here anytime you make modifications to ensure the two stay in sync.
