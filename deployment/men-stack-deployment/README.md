@@ -30,18 +30,23 @@ Take a look at your `package.json` and ensure there's an NPM script called start
 Log in to your Heroku account and navigate to the billing section of the site. Make sure you can see the platform credits available to you via GitHub Campus.
 
 Make sure you're subscribed to Eco Dynos to save money. If not yet subscribed, you can just click on the option shown in the image below.
+
 <img src="./assets/men-stack-1.png" />
 
 Navigate back to your apps dashboard and select one of the two options shown below to create a new application.
+
 <img src="./assets/men-stack-2.png" />
 
 Assign a name to your application. Keep in mind this name will be in the URL Heroku assigns your application.
+
 <img src="./assets/men-stack-3.png" />
 
 After creating your application you'll be taken to the application page. From here, navigate to your application settings.
+
 <img src="./assets/men-stack-4.png" />
 
-On your application settings page, define your environment variables. 
+On your application settings page, define your environment variables.
+
 <img src="./assets/men-stack-5.png" />
 
 You won't need to define a PORT, but you will need to add your MongoDB Atlas connection string. You will also need to add `ON_HEROKU` to `true`.
