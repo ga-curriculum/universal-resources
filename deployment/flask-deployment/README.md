@@ -38,7 +38,7 @@ def get_db_connection():
 
 This checks for the `ON_HEROKU` environment variable we created on Heroku earlier. If it is present we'll use a local database on Heroku, otherwise, we'll use the local database on our device.
 
-> 🚨 As this dialog box points out, using a local Postgres database on Heroku incurs a monthly fee. If you've configured your Heroku account correctly by using EcoDynos for all of your projects you should be able to add a single Heroku Postgres add-on and still be under the maximum credits provided by the GitHub Campus program.
+> 🚨 Using a local Postgres database on Heroku incurs a monthly fee. If you've configured your Heroku account correctly by using EcoDynos for all of your projects you should be able to add a single Heroku Postgres add-on and still be under the maximum credits provided by the GitHub Campus program.
 >
 > It is important to ensure that all of your applications are deployed using EcoDynos and that you do not have more than a single Heroku Postgres add-on in your account, or you will be billed by Heroku.
 
@@ -56,7 +56,7 @@ Open the file. Add this text inside of it:
 web: gunicorn app:app
 ```
 
-Gunicorn is now responsible for running our app when we're deployed to heroku. This is a production WSGI server that Flask wants to run in outside of our development environments
+Gunicorn is now responsible for running our app when we're deployed to heroku. This is a production WSGI server that Flask wants to run in outside of our development environments.
 
 ### Allow gunicorn to start the server
 
@@ -77,7 +77,7 @@ if __name__ == '__main__':
 
 ### Push your code to GitHub
 
-With all of these change made, add, commit, and push your code up to GitHub.
+With all of these changes made, add, commit, and push your code up to GitHub.
 
 ## Deploying a Flask application with Heroku
 
@@ -114,9 +114,9 @@ JWT_SECRET=<your-personal-secret-string>
 
 Your specific application may require more environment variables than this. You ***do not*** need to include any environment variables that begin with `POSTGRES_` in your config vars on Heroku.
 
-You'll also need to tell Heroku what type of application your website will be. We can do that using buildpacks. Underneath your config vars, select the option to add a buildpack.
-
 ![](./assets/flask-env.png)
+
+You'll also need to tell Heroku what type of application your website will be. We can do that using buildpacks. Underneath your config vars, select the option to add a buildpack.
 
 Select the Python buildpack.
 
@@ -136,7 +136,7 @@ Once you've connected your GitHub account, specify which repository you'll use t
 
 Upon selecting your repository, you can select a specific branch to deploy your app from. Enable automatic deploys so that your Heroku app updates every time the branch you selected is pushed to.
 
-![](../men-stack-deployment/assets/men-stack-11.png")
+![](../men-stack-deployment/assets/men-stack-11.png)
 
 Additionally, you can trigger a manual deploy to instantly deploy your application.
 
