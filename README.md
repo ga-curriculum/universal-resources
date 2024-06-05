@@ -15,3 +15,5 @@
 - [Getting started with Netlify](./deployment/getting-started-with-netlify/README.md)
 - [MEN Stack Deployment](./deployment/men-stack-deployment/README.md)
 - [React Front-end Deployment](./deployment/react-front-end-deployment/README.md)
+- [Django Deployment](./deployment/django-deployment/README.md)
+- [Flask Deployment](./deployment/flask-deployment/README.md)
