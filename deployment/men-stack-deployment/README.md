@@ -10,9 +10,9 @@ You should already have set up a Heroku account. If not, refer to [this walkthro
 
 ### Create a `start` Script
 
-Up until now, we've run our Express apps by executing `nodemon` which is an NPM script we made that launches our app with nodemon and liveserver to live refresh the app after we make changes to it. While this is ideal for development, when our app is in production (or deployed) we don't need or want it to restart at any point.
+Up until now, we've run our Express apps by executing `nodemon` which is an npm script that watches the JavaScript files within a project directory for changes. Whenever changes are detected, the app is re-launched, speeding up development time. While this is ideal for development, when our app is in production (or deployed) we don't need or want it to restart at any point.
 
-Take a look at your `package.json` and ensure there's an NPM script called start.
+Take a look at your `package.json` and ensure there's an npm script called start.
 
 ```json
 "scripts": {
@@ -22,7 +22,7 @@ Take a look at your `package.json` and ensure there's an NPM script called start
   },
 ```
 
-`npm run start` is the default script and entry point to your app. Heroku will execute npm run start when it deploys your application. You can also run this on your machine to test out the production version of your app.
+`npm run start` is the default script and entry point to your app. Heroku will execute `npm run start` when it deploys your application. You can also run this on your machine to test out the production version of your app.
 
 
 ### Step 2: Set up a Heroku MEN Application
