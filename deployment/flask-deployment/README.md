@@ -13,7 +13,7 @@ To begin, you'll need:
 
 ## Prepare the Flask app to be deployed
 
-There's a few actions we need to take in our Flask application before we can deploy
+There are a few actions we need to take in our Flask application before we can deploy
 
 ### Update database connection
 
@@ -56,13 +56,13 @@ Open the file. Add this text inside of it:
 web: gunicorn app:app
 ```
 
-Gunicorn is now responsible for running our app when we're deployed to heroku. This is a production WSGI server that Flask wants to run in outside of our development environments.
+Gunicorn is now responsible for running our app when we're deployed to Heroku. This is a production WSGI server that Flask wants to run in outside of our development environments.
 
 ### Allow gunicorn to start the server
 
 Right now, we're controlling how the app runs in the `app.py` file with the `app.run()` line. However, gunicorn needs to take on this responsiblity in our deployed app.
 
-This means we need to conditaionlly run the `app.run()` line in the `app.py` file. Change this line (towards the end of the file):
+This means we need to conditionally run the `app.run()` line in the `app.py` file. Change this line (towards the end of the file):
 
 ```python
 app.run()
@@ -110,7 +110,7 @@ ON_HEROKU=true
 JWT_SECRET=<your-personal-secret-string>
 ```
 
-> 🚨 ***Do not add the `ON_HEROKU` environment variable to your local `.env` file. You should not have an `ON_HEROKU` environment variable in your `.env` file at all. Do not add `ON_HEROKU=false` to your local `.env` file.***
+> 🚨 ***Do not add the `ON_HEROKU` environment variable to your local `.env` file. You should not have an `ON_HEROKU` environment variable in your `.env` file at all. Do not add `ON_HEROKU=False` to your local `.env` file.***
 
 Your specific application may require more environment variables than this. You ***do not*** need to include any environment variables that begin with `POSTGRES_` in your config vars on Heroku.
 
@@ -124,7 +124,7 @@ Select the Python buildpack.
 
 ### Connecting your app to GitHub
 
-ow that your Heroku application is properly configured, it's time to connect your GitHub account and deploy your app from GitHub.
+Now that your Heroku application is properly configured, it's time to connect your GitHub account and deploy your app from GitHub.
 
 Select the Deploy option in your application page toolbar, select GitHub as your deployment method, and then connect your GitHub account.
 
@@ -134,7 +134,7 @@ Once you've connected your GitHub account, specify which repository you'll use t
 
 ![](../men-stack-deployment/assets/men-stack-10.png)
 
-Upon selecting your repository, you can select a specific branch to deploy your app from. Enable automatic deploys so that your Heroku app updates every time the branch you selected is pushed to.
+Upon selecting your repository, you can select a specific branch to deploy your app from. Enable automatic deploys so that your Heroku app updates every time the branch you select is pushed to.
 
 ![](../men-stack-deployment/assets/men-stack-11.png)
 
@@ -142,11 +142,11 @@ Additionally, you can trigger a manual deploy to instantly deploy your applicati
 
 ## Updating your deployed site
 
-Your app will update automatically whenever you push the the `main` branch on GitHub.
+Your app will update automatically whenever you push to the `main` branch on GitHub.
 
 ## Setting up a database (one time)
 
-Your app should work, but you won't be able to do anything that would require a database so far because our app isn't connected to a database yet.
+Your app should work, but you won't be able to do anything that would require the use of a database, because our app isn't connected to one yet.
 
 Navigate to the **Resources** tab for your app, then select the **add-ons search box** and search for **`Heroku Postgres`**.
 
@@ -166,7 +166,7 @@ Heroku Postgres will enter a provisioning state which may take a few moments to 
 
 ## Adding tables to your Heroku Postgres database (repeat when you want to add tables)
 
-We need our database to have tables before we can add any data to it, or we might want to alter, add, or delete tables later on. The steps to follow are the same, no matter which action we're taking.
+Our database must have tables before we can add any data to it, or we might want to alter, add, or delete tables later on. The steps to follow are the same, no matter which action we're taking.
 
 After your Heroku Postgres add-on has been provisioned to your account, go to the **Overview** tab for your app as shown below. Select the **Heroku Postgres** add-on.
 
@@ -200,4 +200,4 @@ CREATE TABLE users (
 );
 ```
 
-Run the necessary commands in the `psql` shell to add, remove, and modify the database tables for your deployed application. This does not sync with your local postgres database, you'll need to return here anytime you make modifications to ensure the two stay in sync.
+Run the necessary commands in the `psql` shell to add, remove, and modify the database tables for your deployed application. This does not sync with your local Postgres database, you'll need to return here anytime you make modifications to ensure the two stay in sync.
