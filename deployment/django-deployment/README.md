@@ -213,8 +213,6 @@ SECRET_KEY=A_SUPER_SECRET_STRING_NO_ONE_WILL_EVER_GUESS_OR_KNOW
 
 Your specific application may require more environment variables than this. You ***do not*** need to include any environment variables that begin with `POSTGRES_` in your config vars on Heroku.
 
-tktk Ben, can you add a screenshot of the heroku env screen here. Also outline the **Add Buildpack** button below the config vars (read on).
-
 ![](./assets/django-env.png)
 
 You'll also need to tell Heroku what type of application your website will be. We can do that using buildpacks. Underneath your config vars, select the option to add a buildpack.
