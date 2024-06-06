@@ -13,7 +13,7 @@ To begin, you'll need:
 
 ## Prepare the Django app to be deployed
 
-There's a few actions we need to take in our Django application before we can deploy.
+There are a few actions we need to take in our Django application before we can deploy.
 
 Start by installing all of the necessary packages we'll need throughout this process:
 
@@ -27,6 +27,7 @@ We'll use environment variables on Heroku to be able to manage our app's behavio
 
 ```python
 from dotenv import load_dotenv
+import os
 
 load_dotenv()
 ```
@@ -44,6 +45,16 @@ SECRET_KEY=A_SUPER_SECRET_STRING_NO_ONE_WILL_EVER_GUESS_OR_KNOW
 ```
 
 Replacing `A_SUPER_SECRET_STRING_NO_ONE_WILL_EVER_GUESS_OR_KNOW` with a super secret string no one will ever guess or know (preferrably generated using a secure method).
+
+Back in `settings.py`, adjust the `SECRET_KEY` variable to use the value from the `.env` configured in the previous step.
+
+```python
+# This line of code should be removed
+SECRET_KEY = 'django-insecure-fd1b8uj(%++60-kkg0*8p*gn&a19(ydxc_fm5d$r=r&#a2+q^k' # Your secret key will likely be different
+
+# Replacing it with this
+SECRET_KEY = os.getenv('SECRET_KEY')
+```
 
 ### Configure whitenoise
 
@@ -69,7 +80,7 @@ MIDDLEWARE = [
 
 ### Set allowed hosts
 
-Find the `ALLOWED_HOSTS` configuration setting in `settings.py`. Change it to the below:
+Find the `ALLOWED_HOSTS` configuration setting in `settings.py`. Change it to this:
 
 ```python
 ALLOWED_HOSTS = ["*"]
@@ -87,7 +98,7 @@ Find the `DATABASES` configuration setting in `settings.py`. It should look some
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'catcollector',
+        'NAME': 'catcollector', # Take note of this, you'll need it in the code you're adding
     }
 }
 ```
@@ -108,7 +119,7 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
-            'NAME': '<dbnamehere>',
+            'NAME': '<dbnamehere>', # To continue to use the same local database, this should match the 'NAME' from above
         }
     }
 ```
@@ -119,19 +130,19 @@ This is a pretty large change - the overall story of this is that our applicatio
 
 Here's some more detail though:
 
-- Different `DATABASES` dictionaries will be used depending on if we've set the `ON_HEROKU` environment variable - we won't do this locally, but we will set it when we deploy to heroku.
-- In production on Heroku the database configuration is derived from the `DATABASE_URL` environment variable.
+- Different `DATABASES` dictionaries will be used depending on if we've set the `ON_HEROKU` environment variable - we won't do this locally, but we will set it when we deploy to Heroku.
+- In production on Heroku, the database configuration is derived from the `DATABASE_URL` environment variable.
 - The [`dj-database-url` package](https://pypi.org/project/dj-database-url/) parses this URL and gets the necessary information from it to actually connect to the database
 - `DATABASE_URL` will be set automatically by Heroku when the Heroku Postgres add-on is attached to your Heroku app.
 - When running locally, a local Postgres database (the same one you used while building the app so far) will be used instead.
 
-> 🚨 Using a local Postgres database on Heroku incurs a monthly fee. If you've configured your Heroku account correctly by using EcoDynos for all of your projects you should be able to add a single Heroku Postgres add-on and still be under the maximum credits provided by the GitHub Campus program.
+> 🚨 Using a Postgres database addon on Heroku incurs a monthly fee. If you've configured your Heroku account correctly by using EcoDynos for all of your projects you should be able to add a single Heroku Postgres add-on and still be under the maximum credits provided by the GitHub Campus program.
 >
 > It is important to ensure that all of your applications are deployed using EcoDynos and that you do not have more than a single Heroku Postgres add-on in your account, or you will be billed by Heroku.
 
 ### Turn off debug messages in production
 
-Find the `DEBUG` setting in `settings.py. Add a line to disable debug messages if our app is running on heroku:
+Find the `DEBUG` setting in `settings.py`. Add a line to disable debug messages if our app is running on Heroku:
 
 ```python
 if not 'ON_HEROKU' in os.environ:
@@ -161,7 +172,7 @@ web: gunicorn <your-project-name-here>.wsgi
 > # catcollector is the project name
 > ```
 
-Gunicorn is now responsible for running our app when we're deployed to heroku. This is a production WSGI server that Django wants to run in outside of our development environments.
+Gunicorn is now responsible for running our app when we're deployed to heroku. This is a production WSGI server that Django will run in outside of our development environments.
 
 ### Push your code to GitHub
 
@@ -198,7 +209,7 @@ ON_HEROKU=true
 SECRET_KEY=A_SUPER_SECRET_STRING_NO_ONE_WILL_EVER_GUESS_OR_KNOW
 ```
 
-> 🚨 ***Do not add the `ON_HEROKU` environment variable to your local `.env` file. You should not have an `ON_HEROKU` environment variable in your `.env` file at all. Do not add `ON_HEROKU=false` to your local `.env` file.***
+> 🚨 ***Do not add the `ON_HEROKU` environment variable to your local `.env` file. You should not have an `ON_HEROKU` environment variable in your `.env` file at all. Do not add `ON_HEROKU=False` to your local `.env` file.***
 
 Your specific application may require more environment variables than this. You ***do not*** need to include any environment variables that begin with `POSTGRES_` in your config vars on Heroku.
 
@@ -214,7 +225,7 @@ Select the Python buildpack.
 
 ### Connecting your app to GitHub
 
-ow that your Heroku application is properly configured, it's time to connect your GitHub account and deploy your app from GitHub.
+Now that your Heroku application is properly configured, it's time to connect your GitHub account and deploy your app from GitHub.
 
 Select the Deploy option in your application page toolbar, select GitHub as your deployment method, and then connect your GitHub account.
 
@@ -238,4 +249,36 @@ Your app will update automatically whenever you push the the `main` branch on Gi
 
 We need our database to have tables before we can add any data to it, or we might want to alter, add, or delete tables later on. The steps to follow are the same, no matter which action we're taking.
 
-tktk Ben this is where the instructions can go
+Click on the 'More' button at the top of the page and select 'Run Console' from the dropdown.
+
+![](./assets/run-console.png)
+
+To apply the migrations in your application to the newly-created database, you'll need to run the same command we've used in Django using this console.  Type `python manage.py migrate` in the input field and click the 'Run' button.
+
+![](./assets/migrate-command.png)
+
+The output should look very similar to the output from running this command using the local Postgres database during development.
+
+![](./assets/migration-output.png)
+
+## Creating a super user
+
+You can use the same process to create a super user, granting access to the admin portal within the deployed application.  Enter `python manage.py createsuperuser`, the same way you did when creating a super user in the local Postgres database.
+
+![](./assets/console-create-superuser.png)
+
+Enter a username, optionally enter an email address, then enter (and verify) a password that meets the criteria specified in your application's auth validators.  
+
+The username must be 150 characters or fewer and consist of letters, digits, and @/./+/-/_ only.
+
+If you haven't adjusted any of the auth validators in your app, your password must meet the following criteria:
+- Can't be too similar to your other personal information.
+- Must contain at least 8 characters.
+- Can't be a commonly used password.
+- Can't be entirely numeric.
+
+> 🚨 Remember that you won't be able to see the password as you're typing it!
+
+The output should look like this:
+
+![](./assets/create-superuser-output.png)
