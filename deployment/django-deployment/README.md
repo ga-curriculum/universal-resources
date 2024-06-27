@@ -24,7 +24,7 @@ Refer to the **Troubleshooting** section at the end of this document if you have
 
 ## Prepare the Django app to be deployed
 
-There are a few actions we need to take in our Django application before we can deploy.
+There are a few actions we need to take in our Django application before we can deploy. Ensure you are in the root of your project directory in your terminal.
 
 Start by installing all of the necessary packages we'll need throughout this process:
 
@@ -32,7 +32,7 @@ Start by installing all of the necessary packages we'll need throughout this pro
 pipenv install python-dotenv whitenoise gunicorn dj-database-url
 ```
 
-> 🚨 It is important that you run this exact command to add these packages to your project and ensure they are added to your `Pipfile`.
+> 🚨 It is important that you run this exact command to add these packages to your project and ensure they are added to your `Pipfile`. Not running this command in your project
 
 ### Configure `python-dotenv`
 
