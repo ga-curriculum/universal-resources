@@ -10,6 +10,17 @@ To begin, you'll need:
 
 - A Heroku account. Follow the [Getting Started with Heroku](../getting-started-with-heroku/README.md) guide to walk you through this if you haven't already. You should be signed in to this account.
 - A Django app that starts and runs ***without warnings or errors***.
+- A `Pipfile` file in the root of your project directory. The contents of this file will vary from project to project, but should at least contain the following three lines somewhere in it:
+
+  ```plaintext
+  [packages]
+  django = "*"
+  psycopg2-binary = "*"
+  ```
+
+  There should be additional packages listed here if you've added more Python packages to your project. If you are missing packages from this file, or do not have this file, alert an instructor.
+
+Refer to the **Troubleshooting** section at the end of this document if you have issues while deploying.
 
 ## Prepare the Django app to be deployed
 
@@ -20,6 +31,8 @@ Start by installing all of the necessary packages we'll need throughout this pro
 ```bash
 pipenv install python-dotenv whitenoise gunicorn dj-database-url
 ```
+
+> 🚨 It is important that you run this exact command to add these packages to your project and ensure they are added to your `Pipfile`.
 
 ### Configure `python-dotenv`
 
@@ -50,7 +63,8 @@ Back in `settings.py`, adjust the `SECRET_KEY` variable to use the value from th
 
 ```python
 # This line of code should be removed
-SECRET_KEY = 'django-insecure-fd1b8uj(%++60-kkg0*8p*gn&a19(ydxc_fm5d$r=r&#a2+q^k' # Your secret key will likely be different
+SECRET_KEY = 'django-insecure-fd1b8uj(%++60-kkg0*8p*gn&a19(ydxc_fm5d$r=r&#a2+q^k'
+# Your secret key will likely be different
 
 # Replacing it with this
 SECRET_KEY = os.getenv('SECRET_KEY')
@@ -86,9 +100,7 @@ Find the `ALLOWED_HOSTS` configuration setting in `settings.py`. Change it to th
 ALLOWED_HOSTS = ["*"]
 ```
 
-On Heroku, it's safe to use a wildcard for `ALLOWED_HOSTS`, since the Heroku router performs validation of the Host header in the incoming HTTP request.
-
-On other platforms you may need to list the expected hostnames explicitly in production to prevent HTTP Host header attacks. See [here](https://docs.djangoproject.com/en/5.0/ref/settings/#std-setting-ALLOWED_HOSTS) for more.
+On Heroku, it's safe to use a wildcard for `ALLOWED_HOSTS`, since the Heroku router performs validation of the `Host` header in the incoming HTTP request. On other platforms you may need to list the expected hostnames explicitly in production to prevent HTTP Host header attacks. See [here](https://docs.djangoproject.com/en/5.0/ref/settings/#std-setting-ALLOWED_HOSTS) for more.
 
 ### Prepare the app to connect to a Heroku Postgres database
 
@@ -98,7 +110,8 @@ Find the `DATABASES` configuration setting in `settings.py`. It should look some
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'catcollector', # Take note of this, you'll need it in the code you're adding
+        'NAME': 'catcollector', 
+        # Take note of the name, you'll need it in the code you add in a moment
     }
 }
 ```
@@ -119,12 +132,13 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
-            'NAME': '<dbnamehere>', # To continue to use the same local database, this should match the 'NAME' from above
+            'NAME': '<dbnamehere>',
+            # The value of 'NAME' should match the value of 'NAME' you replaced.
         }
     }
 ```
 
-> 🚨 Replace `<dbnamehere>` above with the *current name of your default database* (this exists in the `DATABASES` dictionary that you are replacing)
+> 🚨 Replace `<dbnamehere>` above (including the `<` and `>` )with the *current name of your default database* (this exists in the `DATABASES` dictionary that you are replacing)
 
 This is a pretty large change - the overall story of this is that our application deployed to Heroku will use a different database than we our local app.
 
@@ -265,11 +279,12 @@ You can use the same process to create a super user, granting access to the admi
 
 ![](./assets/console-create-superuser.png)
 
-Enter a username, optionally enter an email address, then enter (and verify) a password that meets the criteria specified in your application's auth validators.  
+Enter a username, optionally enter an email address, then enter (and verify) a password that meets the criteria specified in your application's auth validators.
 
 The username must be 150 characters or fewer and consist of letters, digits, and @/./+/-/_ only.
 
 If you haven't adjusted any of the auth validators in your app, your password must meet the following criteria:
+
 - Can't be too similar to your other personal information.
 - Must contain at least 8 characters.
 - Can't be a commonly used password.
@@ -280,3 +295,31 @@ If you haven't adjusted any of the auth validators in your app, your password mu
 The output should look like this:
 
 ![](./assets/create-superuser-output.png)
+
+## Troubleshooting
+
+You'll find some troubleshooting steps for common issues below. If a solution to your problem isn't documented below, reach out to your instructor for assistance.
+
+### Postgres database on Heroku was not created automatically
+
+Sometimes a Postgres database will not be provisioned automatically for your application. This is common if your first application build failed for some reason. You'll need to manually install the Heroku Postgres add-on to your application by following the below steps.
+
+Navigate to the **Resources** tab for your app, then select the **add-ons search box** and search for **`Heroku Postgres`**.
+
+![](../flask-deployment/assets/add-heroku-postgres-resource.png)
+
+A dialog box will appear asking you to confirm adding on the database to the project.
+
+![](../flask-deployment/assets/submit-order.png)
+
+> 🚨 As this dialog box points out, using a local Postgres database on Heroku incurs a monthly fee. If you've configured your Heroku account correctly by using EcoDynos for all of your projects you should be able to add a single Heroku Postgres add-on and still be under the maximum credits provided by the GitHub Campus program.
+>
+> It is important to ensure that all of your applications are deployed using EcoDynos and that you do not have more than a single Heroku Postgres add-on in your account, or you will be billed by Heroku.
+
+Ensure your plan indicates that you will be charged a maximum of $5.00/month then select the **Submit Order Form** button.
+
+Heroku Postgres will enter a provisioning state which may take a few moments to complete.
+
+### Other issues
+
+If you encounter other issues, reach out to an instructor for assistance.

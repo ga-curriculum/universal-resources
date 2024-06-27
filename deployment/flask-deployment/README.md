@@ -160,7 +160,7 @@ A dialog box will appear asking you to confirm adding on the database to the pro
 >
 > It is important to ensure that all of your applications are deployed using EcoDynos and that you do not have more than a single Heroku Postgres add-on in your account, or you will be billed by Heroku.
 
-Ensure your plan indicates that you will be charged a maximum of $5.00/month, then select the **Submit Order Form** button after you have confirmed your applications are all using the EcoDynos plan, that this is your first Heroku Postgres add-on, and that you have no other add-ons attached to your account.
+Ensure your plan indicates that you will be charged a maximum of $5.00/month then select the **Submit Order Form** button.
 
 Heroku Postgres will enter a provisioning state which may take a few moments to complete.
 
