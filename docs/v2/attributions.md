@@ -3,7 +3,7 @@
   <span class="headline">Attributions</span>
 </h1>
 
-> 🎉 While these disclaimers are required by their license-holders, General Assembly sincerely thanks and recognizes these creators whose work makes our content look great.
+> 🎉 While these disclaimers are required by their license-holders, General Assembly sincerely thanks and recognizes the creators whose work makes our content look great.
 
 ## Activity banners
 
