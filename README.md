@@ -17,3 +17,7 @@
 - [React Front-end Deployment](./deployment/react-front-end-deployment/README.md)
 - [Django Deployment](./deployment/django-deployment/README.md)
 - [Flask Deployment](./deployment/flask-deployment/README.md)
+
+## Docs
+
+- [Attributions](./docs/v2/attributions.md)
