@@ -53,7 +53,7 @@ touch .env
 
 Open the `.env` file and add this text:
 
-```plain-text
+```plaintext
 SECRET_KEY=A_SUPER_SECRET_STRING_NO_ONE_WILL_EVER_GUESS_OR_KNOW
 ```
 
@@ -104,7 +104,18 @@ On Heroku, it's safe to use a wildcard for `ALLOWED_HOSTS`, since the Heroku rou
 
 ### Prepare the app to connect to a Heroku Postgres database
 
-Find the `DATABASES` configuration setting in `settings.py`. It should look something like this:
+Return to the imports at the top of your `settings.py` file and add the line specified below:
+
+```python
+from dotenv import load_dotenv
+import os
+# Add this line:
+import dj_database_url
+```
+
+This will bring the `dj_database_url` package that we added to our project earlier into the `settings.py` file.
+
+Next, Find the `DATABASES` configuration setting in `settings.py`. It should look something like this:
 
 ```python
 DATABASES = {
@@ -257,19 +268,21 @@ Additionally, you can trigger a manual deploy to instantly deploy your applicati
 
 Your app will update automatically whenever you push the the `main` branch on GitHub.
 
-## Migrating on your Heroku Postgres database (repeat when you want to add tables)
+## Migrating on your Heroku Postgres database (repeat when you want to modify tables)
 
 We need our database to have tables before we can add any data to it, or we might want to alter, add, or delete tables later on. The steps to follow are the same, no matter which action we're taking.
 
-Click on the 'More' button at the top of the page and select 'Run Console' from the dropdown.
+Select the **More** button at the top of the page and select **Run Console** from the dropdown.
 
 ![](./assets/run-console.png)
 
-To apply the migrations in your application to the newly-created database, you'll need to run the same command we've used in Django using this console.  Type `python manage.py migrate` in the input field and click the 'Run' button.
+To apply the migrations in your application to the newly-created database, you'll need to run the same command we've used in Django using this console. Type `python manage.py migrate` in the input field and select the **Run** button.
 
 ![](./assets/migrate-command.png)
 
 The output should look very similar to the output from running this command using the local Postgres database during development.
+
+> 🚨 If this command fails, refer to the **Troubleshooting** section below, it's possible that a Postgres database was not created automatically for you on Heroku.
 
 ![](./assets/migration-output.png)
 
