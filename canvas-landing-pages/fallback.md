@@ -6,7 +6,7 @@
 
 ## About
 
-This repository contains common resources that are used across multiple courses of General Assembly Modular Curriculum. These resources include:
+This repository contains common resources that are used across multiple courses of General Assembly Modular Curriculum.
 
 ## Resources
 
