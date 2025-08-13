@@ -10,18 +10,18 @@ import "microlessons.pkl" as mls
 
 repo {
   // This name is shown in the header nav to navigate users home
-  friendlyName = "Universal Resources - Internal"
+  friendlyName = "Universal Resources"
   // This must match the repo name as it appears on GitHub exactly
-  name = "universal-resources-internal"
+  name = "universal-resources"
   type = "Lesson"
 }
 
 courses {
   new {
-    // Do not remove this fallback course!
     name = "fallback"
-    isHeaderModuleNavShown = false
-    isFooterLessonNavShown = false
-    microlessons {}
+    microlessons {
+      // add microlessons here, in the order they should be delivered
+
+    }
   }
 }

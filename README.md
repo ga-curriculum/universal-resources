@@ -1,4 +1,11 @@
-# ![Universal Resources](./assets/universal-resources.png)
+<h1>
+  <span class="prefix"></span>
+  <span class="headline">Universal Resources</span>
+</h1>
+
+## About
+
+This repository contains common resources that are used across multiple courses of General Assembly Modular Curriculum. These resources include:
 
 ## Resources
 
@@ -21,3 +28,11 @@
 ## Docs
 
 - [Attributions](./docs/v2/attributions.md)
+
+### Course landing pages
+
+- [Fallback](https://pages.git.generalassemb.ly/modular-curriculum-all-courses/tktk-module-name/canvas-landing-pages/fallback.html)
+
+---
+
+**Find a 👾 bug 👾 or have suggestions? [Let us know](https://pages.git.generalassemb.ly/modular-curriculum-all-courses/universal-resources-internal/module-feedback.html)!**
