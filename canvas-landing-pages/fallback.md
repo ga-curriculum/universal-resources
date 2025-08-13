@@ -4,20 +4,28 @@
   <span class="headline">Universal Resources</span>
 </h1>
 
-tktk add some default course navigation content here.
+## About
 
-tktk This landing page will be used when a student's course cannot be determined, so don't include any course-specific details.
+This repository contains common resources that are used across multiple courses of General Assembly Modular Curriculum. These resources include:
 
-## Content
+## Resources
 
-| Lesson | Skills |
-| ------ | ------ |
-| [Setup](./setup/README.md)                               | Setting up the development environment. |
-| [Concepts](./concepts/README.md)                         | tktk skills covered                     |
-| [tktk Microlesson Name](./tktk-microlesson-01/README.md) | tktk skills covered                     |
+- [VSCode Extensions](../vscode-extentions.md)
+- [Working with Chrome DevTools](../working-with-dev-tools.md)
+- [Planning your Browser Game](../planning-your-browser-game.md)
+- [Build a Browser Game Walkthrough](../build-a-browser-game-walkthrough.md)
 
-## Level Up content
+## Deployment
 
-| Lesson | Skills |
-| ------ | ------ |
-| [tktk Microlesson Name](./tktk-microlesson-02/README.md) | tktk skills covered |
+- [GitHub Pages Deployment for Static Sites](../deployment/github-pages-deployment-for-static-sites/README.md)
+- [Getting Started with GitHub Campus](../deployment/getting-started-with-github-campus/README.md)
+- [Getting started with Heroku](../deployment/getting-started-with-heroku/README.md)
+- [Getting started with Netlify](../deployment/getting-started-with-netlify/README.md)
+- [MEN Stack Deployment](../deployment/men-stack-deployment/README.md)
+- [React Front-end Deployment](../deployment/react-front-end-deployment/README.md)
+- [Django Deployment](../deployment/django-deployment/README.md)
+- [Flask Deployment](../deployment/flask-deployment/README.md)
+
+## Docs
+
+- [Attributions](../docs/v2/attributions.md)
